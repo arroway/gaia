@@ -6,23 +6,28 @@
   display: block;
 }
 
-#screenLock li.passcode-enabled {
+#screenLock li.passcode-enabled,
+#screenLock li.password-enabled {
   display: none;
 }
 
-#screenLock[data-lockscreen-enabled="true"][data-passcode-enabled="true"] li.passcode-enabled {
+#screenLock[data-lockscreen-enabled="true"][data-passcode-enabled="true"] li.passcode-enabled,
+#screenLock[data-lockscreen-enabled="true"][data-password-enabled="true"] li.password-enabled {
   display: block;
 }
 
-#screenLock li.passcode-enabled {
+#screenLock li.passcode-enabled,
+#screenLock li.password-enabled {
   display: none;
 }
 
-#screenLock[data-lockscreen-enabled="true"][data-passcode-enabled="true"] li.passcode-enabled {
+#screenLock[data-lockscreen-enabled="true"][data-passcode-enabled="true"] li.passcode-enabled,
+#screenLock[data-lockscreen-enabled="true"][data-password-enabled="true"] li.password-enabled {
   display: block;
 }
 
-#screenLock-passcode .passcode-error {
+#screenLock-passcode .passcode-error,
+#screenLock-password .password-error {
   clear: both;
   display: none;
   height: 4.2rem;
@@ -34,24 +39,32 @@
 
 #screenLock-passcode[data-passcode-status="error"][data-mode="confirm"] div.passcode-error[data-type="incorrect"],
 #screenLock-passcode[data-passcode-status="error"][data-mode="confirmLock"] div.passcode-error[data-type="incorrect"],
-#screenLock-passcode[data-passcode-status="error"][data-mode="edit"] div.passcode-error[data-type="incorrect"] {
+#screenLock-passcode[data-passcode-status="error"][data-mode="edit"] div.passcode-error[data-type="incorrect"],
+#screenLock-password[data-password-status="error"][data-mode="confirm"] div.password-error[data-type="incorrect"],
+#screenLock-password[data-password-status="error"][data-mode="confirmLock"] div.password-error[data-type="incorrect"],
+#screenLock-password[data-password-status="error"][data-mode="edit"] div.password-error[data-type="incorrect"] {
   display: block;
 }
 
 #screenLock-passcode[data-passcode-status="error"][data-mode="new"] div.passcode-error[data-type="mismatch"],
-#screenLock-passcode[data-passcode-status="error"][data-mode="create"] div.passcode-error[data-type="mismatch"] {
+#screenLock-passcode[data-passcode-status="error"][data-mode="create"] div.passcode-error[data-type="mismatch"],
+#screenLock-password[data-password-status="error"][data-mode="new"] div.password-error[data-type="mismatch"],
+#screenLock-password[data-password-status="error"][data-mode="create"] div.password-error[data-type="mismatch"] {
   display: block;
 }
 
-#screenLock-passcode[data-passcode-status="error"] menu[data-mode="new"] {
+#screenLock-passcode[data-passcode-status="error"] menu[data-mode="new"],
+#screenLock-password[data-password-status="error"] menu[data-mode="new"] {
   display: none;
 }
 
-.passcode-change div.passcode-overlay {
+.passcode-change div.passcode-overlay,
+.password-change {
   position: relative;
 }
 
-#screenLock-passcode label {
+#screenLock-passcode label,
+#screenLock-password label {
   -moz-box-sizing: border-box;
   display: block;
   width: auto;
@@ -74,11 +87,17 @@
   display: none !important; /* 1 */
 }
 
-#screenLock-passcode menu[type="toolbar"] {
+#screenLock-password [data-mode] {
+  display: none !important; /* 1 */
+}
+
+#screenLock-passcode menu[type="toolbar"],
+#screenLock-password menu[type="toolbar"] {
   width: 9rem;
 }
 
-#screenLock-passcode menu[type="toolbar"] button {
+#screenLock-passcode menu[type="toolbar"] button,
+#screenLock-password menu[type="toolbar"] button {
   width: 100%;
 }
 
@@ -98,11 +117,21 @@
   display: block !important; /* 1 */
 }
 
-#passcode-confirm {
+#screenLock-password[data-mode="create"]  [data-mode*="create"],
+#screenLock-password[data-mode="confirm"] [data-mode*="confirm"],
+#screenLock-password[data-mode="confirmLock"] [data-mode*="confirmLock"],
+#screenLock-password[data-mode="edit"]    [data-mode*="edit"],
+#screenLock-password[data-mode="new"]     [data-mode*="new"] {
+  display: block !important;
+}
+
+#passcode-confirm,
+#password-confirm {
   display: none;
 }
 
-#screenLock-passcode[data-status="success"] #passcode-confirm {
+#screenLock-passcode[data-status="success"] #passcode-confirm,
+#screenLock-password[data-status="success"] #password-confirm {
   display: inherit;
 }
 
@@ -112,6 +141,19 @@
   top: -5rem;
   left: 0;
 }
+/*.password-input {
+  z-index: -1;
+  position: absolute;
+  top: -5rem;
+  left: 0;
+}*/
+
+/*.password-confirm-input {
+  z-index: -1;
+  position: absolute;
+  top: -5rem;
+  left: 0;
+}*/
 
 .passcode-container {
   position: absolute;
@@ -122,7 +164,8 @@
   background: url(images/document-bg.png);
 }
 
-.passcode {
+.passcode,
+.password {
   width: calc(100% - 2rem);
   margin: 0 auto;
   overflow: hidden;

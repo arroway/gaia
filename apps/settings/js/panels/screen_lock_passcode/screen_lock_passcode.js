@@ -100,6 +100,7 @@ define(function(require) {
             }
 
             var key = String.fromCharCode(code);
+            console.log("handleEvent: key " + key);
             if (evt.charCode === 0) {
               if (this._passcodeBuffer.length > 0) {
                 this._passcodeBuffer = this._passcodeBuffer.substring(0,
