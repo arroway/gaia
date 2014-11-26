@@ -1104,7 +1104,8 @@
         'alt-camera', 'alt-camera-button', 'slide-handle',
         'passcode-pad', 'camera', 'accessibility-camera',
         'accessibility-unlock', 'panel-emergency-call', 'canvas', 'message',
-        'notification-arrow', 'masked-background'];
+        'notification-arrow', 'masked-background',
+        'password-code', 'panel-password'];
 
     var toCamelCase = function toCamelCase(str) {
       return str.replace(/\-(.)/g, function replacer(str, p1) {

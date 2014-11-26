@@ -73,6 +73,10 @@
     window.SettingsListener.observe(
       'lockscreen.passcode-lock.code', '0000',
       this.observers.passcodeChanged);
+    
+    window.SettingsListener.observe(
+      'lockscreen.password-lock.code', '0000',
+      this.observers.passcodeChanged);
   };
 
   /**
@@ -116,7 +120,7 @@
   function lspv_onPasscodeChanged(value) {
     this.states.passcode = value;
   };
-
+  
   /**
    * Stop to observe changes of the passcode and others.
    * @moduleOf {LockScreenPasscodeValidator}
@@ -124,9 +128,16 @@
   LockScreenPasscodeValidator.prototype.unobserveSettings =
   function lspv_observeSettings() {
     this.observers.passcodeChanged =
+    
     window.SettingsListener.unobserve(
       'lockscreen.passcode-lock.code',
       this.observers.passcodeChanged);
+    
+    this.observers.passcodeChanged =
+    
+    window.SettingsListener.unobserve(
+      'lockscreen.password-lock.code',
+      this.observers.passwordChanged);
   };
 
   /**

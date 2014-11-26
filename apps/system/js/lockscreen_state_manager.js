@@ -81,10 +81,12 @@
         'lockscreenslide-activate-right',
         'lockscreen-keypad-input'
       ],
-      observers: {
+      observers: [ 
         'lockscreen.passcode-lock.enabled':
-          this.onPasscodeEnabledChanged.bind(this)
-      }
+          this.onPasscodeEnabledChanged.bind(this),
+        'lockscreen.password-lock.enabled':
+          this.onPasswordEnabledChanged.bind(this)
+      ]
     };
     // The state 'templates'. This component would do transfer among
     // these states.

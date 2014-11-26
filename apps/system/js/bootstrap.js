@@ -11,7 +11,8 @@
          applications, Rocketbar, LayoutManager, PermissionManager,
          SoftwareButtonManager, Accessibility, NfcUtils, ShrinkingUI,
          TextSelectionDialog, InternetSharing, SleepMenu, AppUsageMetrics,
-         LockScreenNotifications, LockScreenPasscodeValidator, NfcManager,
+         LockScreenNotifications, LockScreenPasscodeValidator, 
+         LockScreenPasswordValidator, NfcManager,
          ExternalStorageMonitor, LockScreenNotificationBuilder,
          BrowserSettings, AppMigrator, SettingsMigrator, EuRoamingManager,
          CellBroadcastSystem */
